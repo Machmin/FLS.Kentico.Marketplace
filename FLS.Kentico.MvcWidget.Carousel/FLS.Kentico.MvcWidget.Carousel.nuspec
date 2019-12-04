@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Created init nuget.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>Kentico Widget MVC Carousel</tags>
+		
+	<dependencies>
+		<dependency id="Kentico.AspNet.Mvc" version="12.0.29" />
+	</dependencies>	
+  </metadata>  
+  <files>
+	<file src="bin\Debug\FLS.Kentico.MvcWidget.Carousel.dll" target="lib\net461\FLS.Kentico.MvcWidget.Carousel.dll" />
+	<file src="Views\Shared\Widgets\_Carousel2Widget.cshtml" target="content\Views\Shared\Widgets\_Carousel2Widget.cshtml" />
+  </files>
+  
+</package>
