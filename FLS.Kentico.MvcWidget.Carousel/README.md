@@ -9,7 +9,7 @@
 Add widget to project via [NuGet](https://www.nuget.org/packages/FLS.Kentico.MvcWidget.Carousel).
 
 ## Use
-add carousel widget and set widget in properties
+Add carousel widget and set properties
 
 ### Widget settings
 * **Images** select images from media library
