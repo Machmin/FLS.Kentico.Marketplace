@@ -9,7 +9,7 @@ using Kentico.Components.Web.Mvc.FormComponents;
 
 namespace FLS.Kentico.MvcWidget.Carousel
 {
-    public class Carousel2WidgetProperties : IWidgetProperties
+    public class CarouselWidgetProperties : IWidgetProperties
     {
         // Assigns a selector component to the 'Images' property
         [EditingComponent(MediaFilesSelector.IDENTIFIER, Order = 0, Label = "Images")]

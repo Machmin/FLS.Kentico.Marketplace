@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FLS.Kentico.MvcWidget.Carousel
 {
-    public class Carousel2WidgetViewModel
+    public class CarouselWidgetViewModel
     {
         public IList<string> Links { get; set; }
         public bool ShowControls { get; set; }

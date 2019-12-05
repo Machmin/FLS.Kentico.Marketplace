@@ -537,7 +537,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <Content Include="Views\Shared\Widgets\_Carousel2Widget.cshtml" />
+    <Content Include="Views\Shared\Widgets\_CarouselWidget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.S3.3.1.9.0\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />

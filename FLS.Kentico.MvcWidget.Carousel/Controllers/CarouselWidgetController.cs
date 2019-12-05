@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-[assembly: RegisterWidget("FLS.Kentico.MvcWidget.Carousel2", typeof(Carousel2WidgetController), "Carousel2", IconClass = "icon-carousel")]
+[assembly: RegisterWidget("FLS.Kentico.MvcWidget.Carousel", typeof(CarouselWidgetController), "Carousel", IconClass = "icon-carousel")]
 namespace FLS.Kentico.MvcWidget.Carousel
 {
-    public class Carousel2WidgetController : WidgetController<Carousel2WidgetProperties>
+    public class CarouselWidgetController : WidgetController<CarouselWidgetProperties>
     {
         public ActionResult Index()
         {
-            Carousel2WidgetProperties properties = GetProperties();
+            CarouselWidgetProperties properties = GetProperties();
 
             var links = new List<string>();
             if (properties.Images != null)
@@ -26,14 +26,14 @@ namespace FLS.Kentico.MvcWidget.Carousel
                 }
             }
 
-            var model = new Carousel2WidgetViewModel()
+            var model = new CarouselWidgetViewModel()
             {
                 Links = links,
                 ShowControls = properties.ShowControls,
                 SlideInterval = properties.SlideIntervalSeconds * 1000,
                 PauseOnHower = properties.PauseOnHower,
             };
-            return PartialView("Widgets/_Carousel2Widget", model);
+            return PartialView("Widgets/_CarouselWidget", model);
         }
 
         string GetImageUrlFromMediaLibrary(Guid imageGuid)
