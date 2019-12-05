@@ -8,10 +8,10 @@
 ## Download & installation
 Add widget to project via [NuGet](https://www.nuget.org/packages/FLS.Kentico.MvcWidget.Carousel).
 
-##Use
+## Use
 add carousel widget and set widget in properties
 
-###Widget settings
+### Widget settings
 * **Images** select images from media library
 * **Show carousel controls** show carousel controls
 * **Interval between slides** interval between slided in seconds
