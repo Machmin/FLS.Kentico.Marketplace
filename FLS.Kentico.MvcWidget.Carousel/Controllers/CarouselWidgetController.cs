@@ -11,6 +11,9 @@ using System.Web.Mvc;
 [assembly: RegisterWidget("FLS.Kentico.MvcWidget.Carousel", typeof(CarouselWidgetController), "Carousel", IconClass = "icon-carousel")]
 namespace FLS.Kentico.MvcWidget.Carousel
 {
+    /// <summary>
+    /// Controller for carousel widget.
+    /// </summary>
     public class CarouselWidgetController : WidgetController<CarouselWidgetProperties>
     {
         public ActionResult Index()
@@ -28,7 +31,9 @@ namespace FLS.Kentico.MvcWidget.Carousel
 
             var model = new CarouselWidgetViewModel()
             {
-                Links = links,
+                ImagesPropertyName = nameof(properties.Images),
+
+                Urls = links,
                 ShowControls = properties.ShowControls,
                 SlideInterval = properties.SlideIntervalSeconds * 1000,
                 PauseOnHower = properties.PauseOnHower,

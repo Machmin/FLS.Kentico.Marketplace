@@ -18,5 +18,9 @@ Add carousel widget and set properties
 * **Pause on hower** pause on hover mouse on carousel
 
 
+## Contributions, but fixes and License
+Feel free to Fork and submit pull requests to contribute.
 
+You can submit bugs through the issue list and i will get to them as soon as i can, unless you want to fix it yourself and submit a pull request!
 
+This is free to use and modify!

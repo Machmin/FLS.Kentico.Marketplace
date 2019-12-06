@@ -1,58 +1,62 @@
-﻿@using FLS.Kentico.MvcWidget.Carousel
+﻿@using Kentico.PageBuilder.Web.Mvc
+@model FLS.Kentico.MvcWidget.Carousel.CarouselWidgetViewModel
 
-@model CarouselWidgetViewModel
-
-<div class="carousel-slides">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause=@Model.PauseOnHower data-interval="@Model.SlideInterval">
-        <!-- Indicators -->
-
-        
-        @if (Model.ShowControls)
-        {
-            <ol class="carousel-indicators">
-                @for (int i = 0; i < Model.Links.Count(); i++)
+@if (Model.Urls.Count() > 0)
+{
+    <div class="carousel-slides">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause=@Model.PauseOnHower data-interval="@Model.SlideInterval">
+            <!-- Indicators -->
+            @if (Model.ShowControls)
+            {
+                <ol class="carousel-indicators">
+                    @for (int i = 0; i < Model.Urls.Count(); i++)
+                    {
+                        if (i == 0)
+                        {
+                            <li data-target="#myCarousel" data-slide-to="@i" class="active"></li>
+                        }
+                        else
+                        {
+                            <li data-target="#myCarousel" data-slide-to="@i"></li>
+                        }
+                    }
+                </ol>
+            }
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @for (int i = 0; i < Model.Urls.Count(); i++)
                 {
+                    var link = Model.Urls[i] + "?ext=.jpg";
                     if (i == 0)
                     {
-                        <li data-target="#myCarousel" data-slide-to="@i" class="active"></li>
+                        <div class="item active">
+                            <img src="@link" style="width:100%; height:100%">
+                        </div>
                     }
                     else
                     {
-                        <li data-target="#myCarousel" data-slide-to="@i"></li>
+                        <div class="item">
+                            <img src="@link" style="width:100%; height:100%">
+                        </div>
                     }
                 }
-            </ol>
-        }
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            @for (int i = 0; i < Model.Links.Count(); i++)
+            </div>
+            @if (Model.ShowControls)
             {
-                var link = Model.Links[i] + "?ext=.jpg";
-                if (i == 0)
-                {
-                    <div class="item active">
-                        <img src="@link" style="width:100%; height:100%">
-                    </div>
-                }
-                else
-                {
-                    <div class="item">
-                        <img src="@link" style="width:100%; height:100%">
-                    </div>
-                }
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             }
         </div>
-        @if (Model.ShowControls)
-        {
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        }
     </div>
-</div>
+}
+else if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_AddMediaEditor", Model);
+}

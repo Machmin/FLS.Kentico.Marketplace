@@ -1,0 +1,64 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@model FLS.Kentico.MvcWidget.Carousel.CarouselWidgetViewModel
+
+
+@using (Html.Kentico().BeginInlineEditor("image-selector", Model.ImagesPropertyName))
+{
+    <button class="btn-lg btn-default center-block">
+        Select media
+    </button>
+}
+
+<script>
+
+    window.kentico.pageBuilder.registerInlineEditor("image-selector", {
+        init: function (options) {
+            var editor = options.editor;
+            var button = editor.querySelector("button");
+
+            button.addEventListener("click", function () {
+                // Sets the options object with individual properties
+                var dialogOptions = {
+                    //libraryName: "Graphics",
+                    maxFilesLimit: 0,
+                    //allowedExtensions: ".gif;.png;.jpg;.jpeg",
+                    //selectedValues: options.propertyValue,
+
+                    // Defines the applyCallback function invoked on click of the selector's confirmation button
+                    applyCallback: function (files) {
+                        var newFile = files[0];
+
+                        // Checks if the image isn't already selected
+                        if (options.propertyValue && newFile.fileGuid === options.propertyValue[0].fileGuid) {
+                            return {
+                                closeDialog: true
+                            };
+                        }
+
+                        var fileGuids = [];
+                        for (var i = 0; i < files.length; i++) {
+                            fileGuids.push({ fileGuid: files[i].fileGuid });
+                        }
+
+                        // Creates a custom event that notifies the widget about a change in the value of a property
+                        var event = new CustomEvent("updateProperty", {
+                            detail: {
+                                value: fileGuids,
+                                name: options.propertyName
+                            }
+                        });
+
+                        editor.dispatchEvent(event);
+
+                        return {
+                            closeDialog: true
+                        };
+                    }
+                };
+
+                // Opens the selector modal dialog
+                window.kentico.modalDialog.mediaFilesSelector.open(dialogOptions);
+            });
+        }
+    });
+</script>

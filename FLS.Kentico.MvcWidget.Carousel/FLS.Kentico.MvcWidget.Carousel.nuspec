@@ -18,7 +18,8 @@
   </metadata>  
   <files>
 	<file src="bin\Debug\FLS.Kentico.MvcWidget.Carousel.dll" target="lib\net461\FLS.Kentico.MvcWidget.Carousel.dll" />
-	<file src="Views\Shared\Widgets\_Carousel2Widget.cshtml" target="content\Views\Shared\Widgets\_Carousel2Widget.cshtml" />
+	<file src="Views\Shared\Widgets\_CarouselWidget.cshtml" target="content\Views\Shared\Widgets\_CarouselWidget.cshtml" />
+	<file src="Views\Shared\InlineEditors\_AddMediaEditor.cshtml" target="content\Views\Shared\InlineEditors\_AddMediaEditor.cshtml" />
   </files>
   
 </package>
